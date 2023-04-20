@@ -17,8 +17,12 @@ def hello_world():
 
 @app.route("/")
 def index():
-    return render_template("base.html")
+    return render_template("index.html")
 
+@app.route("/config")
+def get_publishable_key():
+    stripe_config = {"publicKey": stripe_keys["publishable_key"]}
+    return jsonify(stripe_config)
 
 if __name__ == "__main__":
     app.run()
