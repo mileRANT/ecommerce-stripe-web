@@ -1,4 +1,4 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, render_template
 import os
 import stripe
 
@@ -16,8 +16,8 @@ def hello_world():
     return jsonify("hello, world!")
 
 @app.route("/")
-def home():
-    return jsonify("hello, world!")
+def index():
+    return render_template("base.html")
 
 
 if __name__ == "__main__":
